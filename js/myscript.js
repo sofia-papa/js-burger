@@ -25,7 +25,7 @@ bottone.addEventListener("click",
         console.log(prezzoBasePanino);
 
         //COUPON
-        
+
         let listaCoupon = ["ciccioPanino21", "Bestburger21"];
         let coupon = document.getElementById("coupon");
 
@@ -37,7 +37,7 @@ bottone.addEventListener("click",
            }
         }
 
-        let totale = document.getElementsById("somma");
+        let totale = document.getElementById("somma");
         totale.innerHTML = "IL costo è " + prezzoBasePanino + "&euro"
     }
  }
