@@ -1,8 +1,4 @@
 
-let prezzoBasePanino = 10;
-
-let listaCoupon = ["ciccioPanino21", "Bestburger21"]
-
 let nomePanino = document.getElementById("scegli-panino")
 console.log(nomePanino);
 
@@ -11,12 +7,12 @@ console.log(bottone);
 
 bottone.addEventListener("click",
  function() {
-    if (nomePanino.value.length == 0){
+    if (nomePanino.value.length === 0){
         alert ("devi inserire un nome")
     } else {
         let prezzoBasePanino = 10;
         let ingredientiAggiuntivi = document.getElementsByClassName("ingredients-plus")
-        console.log(ingredientiAggiuntivi)
+        console.log(ingredientiAggiuntivi);
 
         for (let i= 0; i < ingredientiAggiuntivi.length; i++){
             let ingredienteAttuale = ingredientiAggiuntivi [i];
@@ -28,7 +24,21 @@ bottone.addEventListener("click",
         }
         console.log(prezzoBasePanino);
 
-      
+        //COUPON
+        
+        let listaCoupon = ["ciccioPanino21", "Bestburger21"];
+        let coupon = document.getElementById("coupon");
+
+        if (coupon.value.length > 0){ // se ho scritto qualcosa
+           if (listaCoupon.includes(coupon.value)){ // se c'è dentro la lista allora sconto del 20%
+               prezzoBasePanino = prezzoBasePanino * 0.8;
+           } else {
+               console.log ("ti stai inventando un coupon");
+           }
+        }
+
+        let totale = document.getElementsById("somma");
+        totale.innerHTML = "IL costo è " + prezzoBasePanino + "&euro"
     }
  }
 );
